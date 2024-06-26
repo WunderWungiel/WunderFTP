@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Icon=harbour-wunderftp
+Exec=sailfish-qml harbour-wunderftp
+Name=WunderFTP
+
+[X-Sailjail]
+# Replace with your organization as a reverse domain name
+OrganizationName=pl.wunderwungiel
+# ApplicationName does not have to be identical to Name
+ApplicationName=WunderFTP
+# Add the required permissions here
+Permissions=Internet;UserDirs
