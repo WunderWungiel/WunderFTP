@@ -23,7 +23,7 @@ Page {
                     margins: Theme.horizontalPageMargin
                 }
                 horizontalAlignment: Text.AlignHCenter
-                text: "Simple FTP server app"
+                text: "Simple FTP server app\n\nVersion: " + settingsPage.version + "\n"
                 color: Theme.highlightColor
                 wrapMode: Text.WordWrap
                 font.pixelSize: Theme.fontSizeMedium
