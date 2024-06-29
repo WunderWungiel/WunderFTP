@@ -36,10 +36,10 @@ class FTPServerManager:
         self.server = None
         self.thread = None
 
-    def _run(self, port):
+    def _run(self, directory, port):
         authorizer = DummyAuthorizer()
         try:
-            authorizer.add_anonymous(f"/home/{self.user}", perm='elradfmwMT')
+            authorizer.add_anonymous(directory, perm='elradfmwMT')
         except RuntimeWarning:
             pass
 
@@ -50,10 +50,10 @@ class FTPServerManager:
         with redirect_stderr(stream):
             self.server.serve_forever()
 
-    def start(self, port):
+    def start(self, directory, port):
         if self.thread is not None and self.thread.is_alive():
             return
-        self.thread = threading.Thread(target=self._run, args=(port,))
+        self.thread = threading.Thread(target=self._run, args=(directory, port))
         self.thread.start()
 
     def stop(self):

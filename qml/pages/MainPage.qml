@@ -14,7 +14,7 @@ Page {
             logArea.text = "\nWunderFTP v" + settingsPage.version + "\n"
             clear_log()
             quick_log("Started")
-            python.call("server.ftp_server.start", [settingsPage.port], function(result) {
+            python.call("server.ftp_server.start", [settingsPage.directory, settingsPage.port], function(result) {
                 settingsPage.running = true
                 python.call("server.get_ip", [], function (result) {
                     addressField.text = result + ":" + settingsPage.port
