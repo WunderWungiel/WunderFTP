@@ -9,13 +9,14 @@ Page {
     property int port
     property string directory
     property bool running
-    property string version: "0.1-2"
+    property string version: "0.2-1"
     property string user
 
     signal userReady()
 
     function save() {
         settings.port = port
+        settings.directory = directory
     }
 
     function load() {
@@ -89,9 +90,8 @@ Page {
                 text: "Save"
                 onClicked: {
                     page.port = Number(portField.text)
-                    page.directory = directoryField.text
                     page.save()
-                    pageStack.pop()
+                    pageStack.pop(mainPage)
                 }
                 anchors.horizontalCenter: parent.horizontalCenter
                 enabled: false
