@@ -11,4 +11,5 @@ OrganizationName=pl.wunderwungiel
 # ApplicationName does not have to be identical to Name
 ApplicationName=WunderFTP
 # Add the required permissions here
-Permissions=Internet;UserDirs
+Permissions=Internet;UserDirs;RemovableMedia
+# Sandboxing=Disabled

@@ -1,8 +1,8 @@
 Name:       harbour-wunderftp
 
 Summary:    Creates Python FTP Server
-Version:    0.1
-Release:    2
+Version:    0.2
+Release:    1
 License:    LICENSE
 BuildArch:  noarch
 URL:        http://example.org/

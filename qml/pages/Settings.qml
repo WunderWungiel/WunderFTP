@@ -87,7 +87,7 @@ Page {
 
             Button {
                 id: saveButton
-                text: "Save"
+                text: qsTr("Save")
                 onClicked: {
                     page.port = Number(portField.text)
                     page.save()

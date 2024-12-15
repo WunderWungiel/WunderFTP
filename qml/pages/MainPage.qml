@@ -7,13 +7,13 @@ Page {
     function start() {
         python.call("server.os.path.isdir", [settingsPage.directory], function (result) {
             if (result !== true) {
-                Notices.show("Invalid directory selected!", Notice.Short, Notice.Center)
+                Notices.show(qsTr("Invalid directory selected!"), Notice.Short, Notice.Center)
                 return
             }
 
             logArea.text = "\nWunderFTP v" + settingsPage.version + "\n"
             clear_log()
-            quick_log("Started")
+            quick_log(qsTr("Started"))
             python.call("server.ftp_server.start", [settingsPage.directory, settingsPage.port], function(result) {
                 settingsPage.running = true
                 python.call("server.get_ip", [], function (result) {
@@ -27,7 +27,7 @@ Page {
         python.call("server.ftp_server.stop", [], function(result) {
             logArea.text = "\nWunderFTP v" + settingsPage.version + "\n"
             clear_log()
-            quick_log("Stopped")
+            quick_log(qsTr("Stopped"))
             settingsPage.running = false
         })
     }
@@ -141,7 +141,7 @@ Page {
                 font.pixelSize: Theme.fontSizeSmall
 
                 Component.onCompleted: {
-                    text = "\nWunderFTP v" + settingsPage.version
+                    text = "\n" + qsTr("WunderFTP") + " v" + settingsPage.version
                 }
            }
 
@@ -157,14 +157,14 @@ Page {
            }
 
            Button {
-               text: "Start"
+               text: qsTr("Start")
                anchors.horizontalCenter: parent.horizontalCenter
                onClicked: page.start()
                visible: settingsPage.running === false
            }
 
            Button {
-               text: "Stop"
+               text: qsTr("Stop")
                anchors.horizontalCenter: parent.horizontalCenter
                onClicked: page.stop()
                visible: settingsPage.running === true
